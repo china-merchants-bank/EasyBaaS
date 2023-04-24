@@ -6,7 +6,7 @@ EasyBaaS是一个基于Linux环境的区块链节点管理工具，提供一键�
 ## 架构
 
 * 应用功能架构
-![客户端](png\EasyBaaS.png)
+![客户端](https://github.com/china-merchants-bank/EasyBaaS/blob/master/images/EasyBaaS.png)
 
 ## 安装指南
 
