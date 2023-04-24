@@ -1,0 +1,16 @@
+groups:
+- name: ProcessAlert
+  rules:
+  - alert: ProcessDownAlert
+    expr: namedprocess_namegroup_num_procs == 0
+    for: 1m
+    labels:
+      Severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机 {{ $labels.instance }} cita节点微服务 {{ $labels.groupname }} 服务状态异常持续1分钟"
+      description: "cita区块链主机 {{ $labels.instance }} cita节点微服务 {{ $labels.groupname }} 服务状态异常持续1分钟"

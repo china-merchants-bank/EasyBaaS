@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "before git push you should successfully execute 'mvn clean package' "
+echo "executing mvn clean package ..."
+mvn clean package
+if [ $? -ne 0 ];then
+    echo -e "\033[31m[Pre-Push]reject: mvn clean package failure, the project is not allowed to push. \033[0m"
+    exit 1
+else
+    echo -e "\033[32m[Pre-Push]success：allow to push. \033[0m"
+fi
+exit 0

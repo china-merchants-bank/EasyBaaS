@@ -1,0 +1,73 @@
+{
+  "groups": [
+    {
+      "name": "image",
+      "type": "com.cmbchina.baas.easyBaas.config.ImageConfig",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "sqlite.spring.datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.DataSourceConfig",
+      "sourceMethod": "sqliteDataSource()"
+    },
+    {
+      "name": "upgrade",
+      "type": "com.cmbchina.baas.easyBaas.config.UpgradeConfig",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.UpgradeConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "image.alertmanager",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.cadvisor",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.cita-exporter",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.cita-node",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.grafana",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.node-exporter",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.process-exporter",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.prometheus",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "image.rabbit-m-q-exporter",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.ImageConfig"
+    },
+    {
+      "name": "upgrade.cita-node",
+      "type": "java.lang.String",
+      "sourceType": "com.cmbchina.baas.easyBaas.config.UpgradeConfig"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,31 @@
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: [ ]
+global:
+  scrape_interval: 5s
+  evaluation_interval: 30s
+  scrape_timeout: 3s
+rule_files:
+  - /etc/prometheus/*.rules
+scrape_configs:
+  - job_name: 'cita-exporter'
+    metrics_path: /metrics/cita
+    static_configs:
+      - targets: [ ]
+  - job_name: 'node-exporter'
+    metrics_path: /metrics
+    static_configs:
+      - targets: [ ]
+  - job_name: 'process-exporter'
+    metrics_path: /metrics
+    static_configs:
+      - targets: [ ]
+  - job_name: 'rabbitmq-exporter'
+    metrics_path: /metrics
+    static_configs:
+      - targets: [ ]
+  - job_name: 'cadvisor'
+    metrics_path: /metrics
+    static_configs:
+      - targets: [ ]

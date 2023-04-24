@@ -1,0 +1,30 @@
+groups:
+- name: RabbitMQAlert
+  rules:
+  - alert: RabbitMQServiceAlert
+    expr: rabbitmq_up == 0
+    for: 1m
+    labels:
+      Severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机 {{ $labels.instance }} rabbitmq服务状态异常持续1分钟"
+      description: "cita区块链主机 {{ $labels.instance }} rabbitmq服务状态异常持续1分钟"
+
+  - alert: RabbitMQFileDescriptorsAlert
+    expr: rabbitmq_fd_used > 2000
+    for: 1m
+    labels:
+      Severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机 {{ $labels.instance }} rabbitmq服务打开的文件描述符数量大于2000持续1分钟"
+      description: "cita区块链主机 {{ $labels.instance }} rabbitmq服务打开的文件描述符数量大于2000持续1分钟"

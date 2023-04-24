@@ -1,0 +1,42 @@
+groups:
+- name: NodeAlert
+  rules:
+  - alert: NodeServiceStatusError
+    expr: Node_Get_ServiceStatus == 0
+    for: 1m
+    labels:
+      severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机IP {{ $labels.NodeIP }}中部署的cita节点服务状态异常超过1分钟"
+      description: "cita区块链主机IP {{ $labels.NodeIP }}中部署的cita节点服务状态异常超过1分钟"
+
+  - alert: NodeBlockDifferenceWarning
+    expr: Node_Get_BlockDifference/1000 >= 20
+    labels:
+      severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机IP {{ $labels.NodeIP }}中部署的cita节点出块间隔大于20秒"
+      description: "cita区块链主机IP {{ $labels.NodeIP }}中部署的cita节点出块间隔大于20秒"
+
+  - alert: NodeFileSizeWarning
+    expr: (Node_Get_DirInfo_TotalFileSize-Node_Get_DirInfo_DataFileSize)/1024/1024 >= 5
+    labels:
+      severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机IP {{ $labels.NodeIP }}中部署的cita节点日志文件已经大于5G，请及时清理"
+      description: "cita区块链主机IP {{ $labels.NodeIP }}中部署的cita节点日志文件已经大于5G，请及时清理"

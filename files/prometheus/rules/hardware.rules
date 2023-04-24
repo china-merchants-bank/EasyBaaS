@@ -1,0 +1,44 @@
+groups:
+- name: HardwareAlert
+  rules:
+  - alert: CpuUsageAlert
+    expr: 100 - (avg(irate(node_cpu_seconds_total{mode="idle"}[1m])) * 100) > 70
+    for: 2m
+    labels:
+      Severity: warning
+      ObjectStack: Linux
+      AlertMetric: CPU使用率
+      AlertClass: 容量
+      AlertMean: LPAR.ECVP
+      EventName: CPU使用率过高
+    annotations:
+      summary: "cita区块链主机 {{ $labels.instance }} CPU 使用率过高"
+      description: "cita区块链主机 {{ $labels.instance }} CPU 持续2分钟使用率超过 70% (当前值: {{ $value }})"
+
+  - alert: MemoryUsageAlert
+    expr: (node_memory_MemTotal_bytes- node_memory_MemAvailable_bytes)/node_memory_MemTotal_bytes > 0.70
+    for: 2m
+    labels:
+      severity: warning
+      ObjectStack: Linux
+      AlertMetric: 内存使用率
+      AlertClass: 容量
+      AlertMean: Memory.MemUsage
+      EventName: 内存使用率过高
+    annotations:
+      summary: "cita区块链主机 {{ $labels.instance }} 内存使用率过高"
+      description: "cita区块链主机 {{ $labels.instance }} 内存使用率超过 70% (当前值: {{ $value }})"
+
+  - alert: DiskUsageAlert
+    expr: (node_filesystem_size_bytes- node_filesystem_avail_bytes)/node_filesystem_size_bytes > 0.70
+    for: 2m
+    labels:
+      severity: warning
+      ObjectStack: Linux
+      AlertMetric: 文件系统使用率
+      AlertClass: 容量
+      AlertMean: MountPoint.Usage
+      EventName: 文件系统使用率过高
+    annotations:
+      summary: "cita区块链主机 {{ $labels.instance }} 磁盘使用率过高"
+      description: "cita区块链主机 {{ $labels.instance }} 磁盘使用率超过 70% (当前值: {{ $value }})，告警设备{{$labels.device}}，文件系统：{{$labels.fstype}}，挂载点：{{$labels.mountpoint}}"  
