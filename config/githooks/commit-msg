@@ -8,8 +8,8 @@ downloadCommitHook (){
 
 workdir=`cd $(dirname $0) ;pwd`
 hook_name=""
-get_hook_download_url="http://mayun.itc.cmbchina.cn/XMB_DevOps/mayunhooks/raw/master/commit_hook_download_url"
-remote_version_url="http://mayun.itc.cmbchina.cn/XMB_DevOps/mayunhooks/raw/master/commit_hook_version"
+get_hook_download_url=""
+remote_version_url=""
 remote_version=`curl -s --connect-timeout 5 $remote_version_url`
 hook_download_url=`curl -s --connect-timeout 5 $get_hook_download_url`
 
