@@ -1,0 +1,16 @@
+groups:
+- name: InstanceAlert
+  rules:
+  - alert: InstanceDown
+    expr: up == 0
+    for: 1m
+    labels:
+      severity: warning
+      ObjectStack: 应用状态
+      AlertMetric: 进程状态
+      AlertClass: 状态
+      AlertMean: 应用异常
+      EventName: 应用异常
+    annotations:
+      summary: "cita区块链主机IP端口{{ $labels.instance }}中监控应用{{ $labels.job }}异常停止"
+      description: "cita区块链主机IP端口{{ $labels.instance }}中监控应用{{ $labels.job }}异常停止超过1分钟"

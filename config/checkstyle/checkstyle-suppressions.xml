@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+<suppressions>
+    <suppress checks="MemberName" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]model[\\/]NetworkToml" />
+    <suppress checks="MemberName" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]model[\\/]Peer" />
+    <suppress checks="MemberName" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]model[\\/]HttpConfig" />
+    <suppress checks="MemberName" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]model[\\/]JsonRpcToml" />
+    <suppress checks="MemberName" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]model[\\/]NewTxFlowConfig" />
+    <suppress checks="MemberName" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]model[\\/]WsConfig" />
+    <suppress checks="FileLength" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]service[\\/]internal[\\/]impl[\\/]DeploymentNodeServiceImpl" />
+    <suppress checks="FileLength" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]service[\\/]internal[\\/]impl[\\/]DeploymentNodeFileServiceImpl" />
+    <suppress checks="FileLength" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]client[\\/]deployment[\\/]docker[\\/]sdk[\\/]DockerJavaPlatformOperation" />
+    <suppress checks="MethodLength" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]util[\\/]shell[\\/]ShellUtils" />
+    <suppress checks="CyclomaticComplexity" files="com[\\/]cmbchina[\\/]baas[\\/]easyBaas[\\/]util[\\/]shell[\\/]ShellUtils" />
+<!--    <suppress files="com[\\/]cmbchina[\\/]baas[\\/]thinclient[\\/]service[\\/]internal[\\/]impl[\\/]PrepareApiServiceImpl.java" checks="FileLength"/>-->
+</suppressions>

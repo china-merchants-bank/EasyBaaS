@@ -1,0 +1,9 @@
+process_names:
+  - comm:
+    - cita-forever
+    - cita-chain
+    - cita-network
+    - cita-bft
+    - cita-executor
+    - cita-jsonrpc
+    - cita-auth

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <!-- 字符集编码 -->
+    <property name="charset" value="UTF-8"/>
+    <!-- 违规级别 -->
+    <property name="severity" value="error"/>
+    <!-- 需要检查的文件扩展名 -->
+    <property name="fileExtensions" value="java, properties, xml"/>
+
+    <!-- 文件是否包含制表符 -->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+
+    <!-- 行长度 -->
+    <module name="LineLength">
+        <property name="fileExtensions" value="java"/>
+        <property name="max" value="220"/>
+        <property name="ignorePattern"
+                  value="^implements.*|^extends.*|^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    </module>
+
+    <!-- 文件长度最大值为`200`，如果超过则意味着该类职责可能过多需要重构 -->
+    <module name="FileLength">
+        <property name="max" value="300"/>
+    </module>
+
+    <!-- property 文件中是否有相同的 key -->
+    <module name="Translation"/>
+
+    <!-- Java 源文件并定义一些适用于检查此类文件的一些属性 -->
+    <module name="TreeWalker">
+        <!-- 跳过部分文件检测 -->
+        <module name="SuppressionCommentFilter"/>
+
+        <!-- 外部类型名称和文件名是否匹配 -->
+        <module name="OuterTypeFilename"/>
+        <module name="PackageName"/>
+        <module name="TypeName"/>
+        <module name="MemberName"/>
+        <module name="ParameterName"/>
+        <module name="LambdaParameterName"/>
+        <module name="CatchParameterName"/>
+        <module name="LocalVariableName"/>
+        <module name="ClassTypeParameterName"/>
+        <module name="MethodTypeParameterName"/>
+        <module name="InterfaceTypeParameterName"/>
+        <module name="MethodName"/>
+        <module name="ConstantName"/>
+        <module name="StaticVariableName"/>
+
+        <!-- 使用 * 表示的 import 语句 -->
+        <module name="AvoidStarImport"/>
+        <!-- 没用的 import -->
+        <module name="UnusedImports"/>
+        <!-- 是否导入了多余的包 -->
+        <module name="RedundantImport"/>
+
+        <!-- 修饰符检查 -->
+        <!-- 检查修饰符的顺序是否遵照 java 语言规范，默认 public、protected、private、abstract、static、final、transient、volatile、synchronized、native、strictfp -->
+        <module name="ModifierOrder"/>
+        <!-- 检查接口和 annotation 中是否有多余修饰符，如接口方法不必使用 public -->
+        <module name="RedundantModifier"/>
+
+        <!-- 是否有嵌套代码块 -->
+        <module name="AvoidNestedBlocks"/>
+        <!-- 是否有空代码块 -->
+        <module name="EmptyBlock"/>
+        <!-- 代码块是否缺失 {} -->
+        <module name="NeedBraces"/>
+        <!-- 左大括号位置 -->
+        <module name="LeftCurly"/>
+        <!-- 右大括号位置 -->
+        <module name="RightCurly"/>
+
+        <!-- 方法长度最大值为`30`，为了避免方法职责过多 -->
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="30"/>
+            <property name="countEmpty" value="false"/>
+        </module>
+
+        <!-- 方法参数个数最多为`9`，方法参数过多意味着方法职责过多需要重构 -->
+        <module name="ParameterNumber">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="9"/>
+        </module>
+
+        <!-- IF嵌套最多为`2`层 -->
+        <module name="NestedIfDepth">
+            <property name="max" value="2"/>
+        </module>
+
+        <!-- Try不能嵌套 -->
+        <module name="NestedTryDepth">
+            <property name="max" value="1"/>
+        </module>
+
+        <!-- 方法复杂度最大为`7` -->
+        <module name="CyclomaticComplexity">
+            <property name="max" value="7"/>
+        </module>
+
+        <!-- 返回语句最多为`3`，返回语句过多可能意味着方法职责过多 -->
+        <module name="ReturnCount">
+            <property name="max" value="3"/>
+        </module>
+
+        <!-- 方法跑出异常最多为`3` -->
+        <module name="ThrowsCount">
+            <property name="max" value="5"/>
+        </module>
+
+        <!-- 检查数组类型定义的样式 -->
+        <module name="ArrayTypeStyle"/>
+        <!-- 检查 switch 语句是否具有“default”子句 -->
+        <module name="MissingSwitchDefault"/>
+        <!-- 检查 switch 语句(跨越分支) -->
+        <module name="FallThrough"/>
+        <!-- 检查 long 型定义是否有大写的“L” -->
+        <module name="UpperEll"/>
+
+        <module name="EmptyForInitializerPad"/>
+        <module name="EmptyForIteratorPad"/>
+        <module name="EmptyLineSeparator">
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
+        </module>
+        <module name="GenericWhitespace"/>
+        <module name="MethodParamPad"/>
+        <module name="NoLineWrap"/>
+        <module name="OperatorWrap"/>
+        <module name="ParenPad"/>
+        <module name="SingleSpaceSeparator"/>
+        <module name="TypecastParenPad"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+
+    </module>
+</module>

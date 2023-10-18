@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmbchina.baas.easyBaas.mapper.NodeInfoMapper">
+    <resultMap id="BaseResultMap" type="com.cmbchina.baas.easyBaas.model.NodeInfo">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="node_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="host" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="deploy_status" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="version" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="network_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="network_path" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="node_folder" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="create_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="update_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, node_name, address, host, deploy_status, version, network_name, network_path, node_folder,create_time, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from node_info
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.cmbchina.baas.easyBaas.model.NodeInfo">
+        insert into node_info (id, node_name, address,
+        host, deploy_status, version, network_name,network_path,node_folder,
+        create_time, update_time)
+        values (#{id,jdbcType=INTEGER}, #{nodeName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+        #{host,jdbcType=VARCHAR}, #{deployStatus,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR},
+        #{networkName,jdbcType=VARCHAR},#{networkPath,jdbcType=VARCHAR},#{nodeFolder,jdbcType=VARCHAR},
+        #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.cmbchina.baas.easyBaas.model.NodeInfo">
+        insert into node_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="nodeName != null">
+                node_name,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="host != null">
+                host,
+            </if>
+            <if test="deployStatus != null">
+                deploy_status,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="networkName != null">
+                network_name,
+            </if>
+            <if test="networkPath != null">
+                network_path,
+            </if>
+            <if test="nodeFolder != null">
+                node_folder,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="nodeName != null">
+                #{nodeName,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="host != null">
+                #{host,jdbcType=VARCHAR},
+            </if>
+            <if test="deployStatus != null">
+                #{deployStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=VARCHAR},
+            </if>
+            <if test="networkName != null">
+                #{networkName,jdbcType=VARCHAR},
+            </if>
+            <if test="networkPath != null">
+                #{networkPath,jdbcType=VARCHAR},
+            </if>
+            <if test="nodeFolder != null">
+                #{nodeFolder,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cmbchina.baas.easyBaas.model.NodeInfo">
+        update node_info
+        <set>
+            <if test="nodeName != null">
+                node_name = #{nodeName,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="host != null">
+                host = #{host,jdbcType=VARCHAR},
+            </if>
+            <if test="deployStatus != null">
+                deploy_status = #{deployStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=VARCHAR},
+            </if>
+            <if test="networkName != null">
+                network_name = #{networkName,jdbcType=VARCHAR},
+            </if>
+            <if test="networkPath != null">
+                network_path = #{networkPath,jdbcType=VARCHAR},
+            </if>
+            <if test="nodeFolder != null">
+                node_folder = #{nodeFolder,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cmbchina.baas.easyBaas.model.NodeInfo">
+        update node_info
+        set node_name = #{nodeName,jdbcType=VARCHAR},
+        address = #{address,jdbcType=VARCHAR},
+        host = #{host,jdbcType=VARCHAR},
+        deploy_status = #{deployStatus,jdbcType=VARCHAR},
+        version = #{version,jdbcType=VARCHAR},
+        network_name = #{networkName,jdbcType=VARCHAR},
+        network_path = #{networkPath,jdbcType=VARCHAR},
+        node_folder = #{nodeFolder,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=VARCHAR},
+        update_time = #{updateTime,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="countNodeInfo" resultType="java.lang.Long">
+        select count(1) from node_info
+    </select>
+
+    <select id="selectAllNodeInfo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info
+    </select>
+    <select id="selectByNodeName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info
+        where node_name = #{nodeName,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByHostAddress" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info
+        where `host` like #{address,jdbcType=VARCHAR} || '%'
+    </select>
+
+    <select id="selectAllHostAddress" resultType="java.lang.String">
+        select host from node_info where 1=1
+    </select>
+
+    <select id="selectHostByUnDeploymentTag" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info where deploy_status = #{deployStatus,jdbcType=VARCHAR}
+    </select>
+
+
+    <select id="selectDeploymentNodeByHostAddress" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info
+        where deploy_status = #{deployStatus,jdbcType=VARCHAR}
+        and `host` like #{address,jdbcType=VARCHAR} || '%'
+    </select>
+
+    <select id="selectAllNodeInfoByStatus" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from node_info where deploy_status = '1'
+    </select>
+
+</mapper>

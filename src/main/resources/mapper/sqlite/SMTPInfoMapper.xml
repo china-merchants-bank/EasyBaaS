@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmbchina.baas.easyBaas.mapper.SMTPInfoMapper">
+    <resultMap id="BaseResultMap" type="com.cmbchina.baas.easyBaas.model.SMTPInfo">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="auth_code" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="smtp_host" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="create_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="update_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, email, auth_code, smtp_host, create_time, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from smtp_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from smtp_info
+        where 1 = 1
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from smtp_info
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.cmbchina.baas.easyBaas.model.SMTPInfo">
+        insert into smtp_info (id, email, auth_code,
+        smtp_host, create_time, update_time
+        )
+        values (#{id,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{authCode,jdbcType=VARCHAR},
+        #{smtpHost,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.cmbchina.baas.easyBaas.model.SMTPInfo">
+        insert into smtp_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="authCode != null">
+                auth_code,
+            </if>
+            <if test="smtpHost != null">
+                smtp_host,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="authCode != null">
+                #{authCode,jdbcType=VARCHAR},
+            </if>
+            <if test="smtpHost != null">
+                #{smtpHost,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cmbchina.baas.easyBaas.model.SMTPInfo">
+        update smtp_info
+        <set>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="authCode != null">
+                auth_code = #{authCode,jdbcType=VARCHAR},
+            </if>
+            <if test="smtpHost != null">
+                smtp_host = #{smtpHost,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cmbchina.baas.easyBaas.model.SMTPInfo">
+        update smtp_info
+        set email = #{email,jdbcType=VARCHAR},
+        auth_code = #{authCode,jdbcType=VARCHAR},
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=VARCHAR},
+        update_time = #{updateTime,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
